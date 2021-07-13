@@ -2,10 +2,20 @@ package downloader
 
 import (
 	"bytes"
+	"fmt"
 	"io"
 	"net/http"
 	"os"
 )
+
+type WebsiteDownloader struct{
+	UrlList []string
+	StorageLocation string 
+}
+
+func NewWebsiteDownloader(urlList []string, storageLocation string) *WebsiteDownloader{
+	return &WebsiteDownloader{UrlList: urlList, StorageLocation: storageLocation} 
+}
 
 func (wd *WebsiteDownloader) Run() {
 	// constraint: this needs to be concurrent
@@ -17,7 +27,10 @@ func (wd *WebsiteDownloader) Run() {
 		panic(err)
 	}
 
-	saveSite(output, "./temp/google.com")
+	err = saveSite(output, "./temp/googledotcom.html")
+	if err != nil {
+		fmt.Println(err)
+	}
 }
 
 func downloadSite(url string) (*bytes.Buffer, error){
@@ -42,5 +55,9 @@ func saveSite(downloadedSite *bytes.Buffer, saveLocation string) error{
 
 	
 	_, err = io.Copy(file, downloadedSite)
+	if err != nil {
+		return nil 
+	}
+
 	return nil 
 }
