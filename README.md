@@ -12,15 +12,9 @@ This program is a simple program to download sites and save them to a directoy. 
 * all package dependencies can be found within the gomod file
 * a directory created called temp
 
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
 ```
 mkdir temp 
 go mod download
