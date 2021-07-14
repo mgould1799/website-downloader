@@ -1,4 +1,4 @@
 .vscode
 WebsiteDownloader
-temp
+temp/*
 .DS_Store
