@@ -29,8 +29,6 @@ func (wd *WebsiteDownloader) Run() {
 	wd.downloadUrls(urlChannel)
 }
 
-
-
 // downloads a site a site
 // returns a bytes.buffer and error 
 func downloadSite(url string) (*bytes.Buffer, error) {

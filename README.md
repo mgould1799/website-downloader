@@ -2,14 +2,15 @@
 
 ## Description
 
-This program is a simple program to download sites and save them a directoy
+This program is a simple program to download sites and save them to a directoy. This is to showcase a simple implementation of the pipeline concurrency pattern in golang.
 
 ## Getting Started
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* golang needs to be installed 
+* all package dependencies can be found within the gomod file
+* a directory created called temp
 
 ### Installing
 
@@ -21,8 +22,21 @@ This program is a simple program to download sites and save them a directoy
 * How to run the program
 * Step-by-step bullets
 ```
-code blocks for commands
+mkdir temp 
+go mod download
+go build 
+./WebsiteDownloader
 ```
+
+Flags that can be passed
+
+`--urls`
+Urls is a list of comma separated urls to pull down and save
+
+example run 
+```
+./WebsiteDownloader --urls=https://google.com,https://facebook.com
+````
 
 ## Acknowledgments
 
