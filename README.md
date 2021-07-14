@@ -22,7 +22,7 @@ go build
 ./WebsiteDownloader
 ```
 
-####Flags that can be passed
+#### Flags that can be passed
 
 `--urls`
 Urls is a list of comma separated urls to pull down and save
