@@ -9,20 +9,19 @@ import (
 	"os"
 )
 
+// a struct to host the storage location and urllist
 type WebsiteDownloader struct {
 	UrlList         []string
 	StorageLocation string
 }
 
+// a funciton to create a new object on the string
 func NewWebsiteDownloader(urlList []string, storageLocation string) *WebsiteDownloader {
 	return &WebsiteDownloader{UrlList: urlList, StorageLocation: storageLocation}
 }
 
+// run the actual downloading of the urls
 func (wd *WebsiteDownloader) Run() {
-	// constraint: this needs to be concurrent
-	// create a method to download
-	// create a method to store the site in a location
-
 	// put the urls into a channel
 	urlChannel := wd.outputUrls()
 	// grab those  vars from a channel and download them concurrently
@@ -46,6 +45,7 @@ func downloadSite(url string) (*bytes.Buffer, error) {
 	return buffer, nil
 }
 
+// puts the urls into a channel
 func (wd *WebsiteDownloader) outputUrls() <- chan string{
 	urlChannel := make(chan string, len(wd.UrlList))
 	defer close(urlChannel)
@@ -55,6 +55,7 @@ func (wd *WebsiteDownloader) outputUrls() <- chan string{
 	return urlChannel
 }
 
+// downlaods the sites and aves them to a place
 func (wd *WebsiteDownloader) downloadUrls(urls <- chan string) error{
 	for url := range urls {
 		// download the site
@@ -76,6 +77,7 @@ func (wd *WebsiteDownloader) downloadUrls(urls <- chan string) error{
 	return nil 
 }
 
+// create name of the file 
 func createLocationString(urlString string) (string, error) {
 	fileUrl, err := url.ParseRequestURI(urlString)
 	if err != nil {
