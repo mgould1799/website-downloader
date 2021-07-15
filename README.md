@@ -2,7 +2,7 @@
 
 ## Description
 
-This program is a simple program to download sites and save them to a directoy. This is to showcase a simple implementation of the pipeline concurrency pattern in golang.
+This is a simple program to download sites and save them to a directoy. This is to showcase a simple implementation of the pipeline concurrency pattern in golang.
 
 ## Getting Started
 
