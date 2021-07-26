@@ -47,6 +47,9 @@ Full example
 
 Inspiration, code snippets, etc.
 * https://golangdocs.com/golang-download-files
+* https://stackoverflow.com/questions/55203251/limiting-number-of-go-routines-running
+* https://medium.com/@deckarep/gos-extended-concurrency-semaphores-part-1-5eeabfa351ce
+
 
 
 ## License
