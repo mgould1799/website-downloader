@@ -27,13 +27,11 @@ go build
 `--urls`
 Urls is a list of comma separated urls to pull down and save
 
-example run 
 ```
 ./WebsiteDownloader --urls=https://google.com,https://facebook.com
 ````
 
 `--storageLocation`
-example run 
 ```
 ./WebsiteDownloader --storageLocation=./temp/test
 ```
