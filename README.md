@@ -32,6 +32,17 @@ example run
 ./WebsiteDownloader --urls=https://google.com,https://facebook.com
 ````
 
+`--storageLocation`
+example run 
+```
+./WebsiteDownloader --storageLocation=./temp/test
+```
+
+Full example
+```
+./WebsiteDownloader --urls=https://google.com,https://facebook.com,https://instagram.com,https://stackoverflow.com,https://microsoft.com,https://github.com,gitlab.com --storageLocation=./temp/test
+```
+
 ## Acknowledgments
 
 Inspiration, code snippets, etc.
