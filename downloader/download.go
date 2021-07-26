@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"path/filepath"
 )
 
 // a struct to host the storage location and urllist
@@ -22,6 +23,11 @@ func NewWebsiteDownloader(urlList []string, storageLocation string) *WebsiteDown
 
 // run the actual downloading of the urls
 func (wd *WebsiteDownloader) Run() {
+	// check if storage location is empty
+	err := wd.checkDirectory()
+	if err != nil {
+		panic(err)
+	}
 	// put the urls into a channel
 	urlChannel := wd.outputUrls()
 	// grab those  vars from a channel and download them concurrently
@@ -78,6 +84,12 @@ func (wd *WebsiteDownloader) downloadUrls(urls <-chan string) <-chan Creation {
 	}()
 	return output
 
+}
+
+// check if the give directory exists if not create it 
+func (wd *WebsiteDownloader) checkDirectory() error{
+	newpath := filepath.Join(".", wd.StorageLocation)
+	return os.MkdirAll(newpath, os.ModePerm)
 }
 
 // create name of the file
